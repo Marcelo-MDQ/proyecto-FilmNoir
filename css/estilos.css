@@ -1,0 +1,510 @@
+/*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+/* Elementos principales de la página */
+body
+{
+	/* le pongo !important para que el Bootstrap no me lo cambie */
+    font-family: 'Merriweather','Trebuchet MS', Arial, sans-serif !important;
+    color: #00000;
+}
+
+header {
+  background: #000;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  font-family: 'Crushed', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.contenedor {
+	width: 100%;
+	margen: auto;
+}
+
+h1 {
+	color: gray;
+	float: left;
+	margin-left: 10px;
+	
+	/* uso !important porque el Bootstrap me lo cambia, ver cómo mejorar esto.... */
+	font-family: 'Playball', cursive !important; /* la letra para Film Noir */
+	font-size: 36px !important;
+	font-weight: bold !important;
+	line-height: 1.5 !important;
+}
+
+
+#menu-bar {
+	display: none; /* escondo el check, luego hace la función la F de Facebook */
+}
+
+header label {
+	/* la F de Facebook */
+	font-size: 28px;
+	color: gray;
+	float: right;
+	margin: 6px 0;
+	cursor: pointer;
+}
+
+.menu {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background: #000;
+	transition: all 0.5s;
+	transform: translateX(-100%);
+}
+
+.menu a {
+	display: block;
+	color: #999;
+	height: 50px;
+	text-decoration: none;
+	padding: 15px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.menu a:hover {
+	color: #fff;
+}
+ 
+#menu-bar:checked ~ .menu {
+	transform: translateX(0%);
+}
+
+
+@media (min-width:1024px) {
+	.menu {
+		position: static;
+		width: auto;
+		height: auto;
+		float: right;
+		transform: translateX(0%);
+		display: flex;
+	}
+	
+	.menu a {
+		border: none;
+	}
+	
+	header label {
+		display: none;
+	}
+}
+
+/* utilizo tag section */
+section {
+	width: 100%;
+	margin-bottom: 25px;	
+}
+
+/* Banner */
+#banner {
+	margin-top: 50px;   
+} 
+
+#banner img {
+	width: 100%;
+	height: 100%;
+}
+
+/* modifico el banner según el tamaño de pantalla */
+@media (min-width:768px) {
+	#banner {
+		height: 200px;
+		overflow: hidden;
+	}
+	
+	#banner img {
+		height: auto;
+	}
+}
+
+@media (min-width:1024px) {
+
+	#banner img {
+		height: auto;
+		margin-top: -50px;
+	}
+}
+
+
+#bienvenidos {
+	background: #fff;
+	text-align: justify;
+	padding-inline: 80px; /* para que no ocupe todo el ancho de la pantalla */
+}
+
+/* probando algo que siempre me gustó */
+#bienvenidos p::first-letter {
+   float: left;
+   background-color: pink;
+   color: red;
+   font-family: monospace;
+   font-size: 200%;
+}
+
+#bienvenidos p.firma {
+   text-align: right;
+   background-color: pink;
+   color: red;
+   font-size: 100%;
+}
+
+#bienvenidos_peliculas {
+	background: #fff;
+	text-align: center;
+    margin-top: 70px;
+    
+}
+
+#blog {
+	width: 90%;
+	margin: auto;
+	padding: 0 0 40px 0;
+}
+
+#blog h3, h4 {
+	text-align: center;
+}
+
+#blog .contenedor {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#blog article {
+	margin: 15px;
+}
+
+#blog img {
+	width: 100%;
+	max-width: 280px;
+}
+
+/* para las reviews */
+.column {
+	width: 100%;
+	justify-content: center;
+}
+
+.column--50 {
+	width: 45%;
+}
+
+#multimedia {
+	text-align: center;
+    
+}
+#multimedia .contenedor {
+	display: flex;
+	padding: 0 200px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+#info-newsletter .contenedor {
+	margin-left: 50px;
+	width: 40%;
+	height: 100%;
+}
+
+#info-newsletter img {
+	width: 100vh;
+	height: auto;
+}
+
+#info {
+	color: #fff;
+	background: #555;
+	text-align: center;
+	margin-bottom: 20px;	
+}
+
+#info-otroBack {
+	color: #fff;
+	background: #444;
+	text-align: center;
+	margin-bottom: 20px;	
+}
+
+#info .contenedor {
+	background: #555; 
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#info-otroBack .contenedor {
+	background: #444;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	justify-content: center;
+}
+
+
+.info-estrella {
+	margin: 20px;
+}
+
+.info-estrella img {
+	witdh: 12rem;
+	height: 12rem;
+	border-radius:50%;
+	border: 7px solid #fff;
+}
+.info-estrella img:hover {
+	transform: rotate(-5deg);
+	transform: rotate(5deg);
+}
+
+
+/* cajita */
+.cajita {
+    border-radius: 10px;
+    max-width: 100%;
+    object-fit: none;
+}
+
+.cajita:hover {
+    object-fit: cover;
+}
+
+
+/* imagen izquierda en las reseñas */
+.img-review {
+    width: 100%;
+    padding-left: 10px;
+    float: right;
+    margin-right: 20px;
+}
+  
+.img-review-abajo {
+	height: 190px;
+	object-fit: cover;
+	padding: 10px;
+}  
+
+.img-review-abajo:hover{
+    transform: scale(1.1);
+    transition: .2s;
+        z-index: 1000;
+}
+
+.contenedor-imgs-abajo {
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* FOOTER */
+footer .contenedor-footer {
+	width: 100%;
+	color: #fff;
+	background: #000;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 25px;
+	padding-bottom: 125px;
+}
+
+.footer-texto {
+	font-size: 20px;
+	margin-bottom: 1rem; /* para coincidir con Bootstrap */
+}
+
+.footer-iconos {
+	width: 100%;
+	text-align: center;
+	font-size: 28px;
+}
+
+.footer-iconos a {
+	color: #333;
+	text-decoration: none;
+}
+
+.footer-iconos a:hover {
+	color: #0a58ca;
+	text-decoration: none;
+}
+
+
+/* formatear el formulario de newsletter */
+input  {
+  font-family: 'Merriweather', Arial, sans-serif;
+  background: gray;
+  font-size: 100%;
+  padding: 5px 15px;
+}
+
+.boton-ingreso {
+  font-family: 'Merriweather', Arial, sans-serif;
+  font-size: 100%;
+  padding: 10px;
+  background: url('../images/fond_azul.png');
+  width: 100%;
+}
+
+/* otra para peliculas */
+.contenedor-pelis {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+.entrada-blog {
+    display: inline-block;
+}
+
+@media (min-width:600px) {
+    .tres-columnas {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+/*
+@media (min-width:480px) {
+    .tres-columnas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+*/
+
+/* peliculas con css grid para probar */
+.contenedor-peliculas-grid {
+	max-width: 1200px;
+	width: 98%;
+	margin: 0 auto;
+	margin-top: 70px;
+	padding: 0 0 20px;
+	
+	/* GRID */
+	display: grid;
+	gap: 20px;
+	
+	grid-template:
+		"arriba arriba" 40px
+		"principal columna" auto /
+		auto 180px;
+}	
+
+.peliculas-arriba {
+    grid-area: arriba;
+	background: white;
+	text-align: center;
+}
+
+h2 {
+	font-family: 'Merriweather';
+    color: #00000;
+}
+
+.peliculas-columna-derecha {
+	grid-area: columna;
+	border-radius: 10px;
+	padding: 20px;
+	background: grey;
+	text-align: center;
+}
+
+.peliculas-columna-derecha h3 {
+	background: #FFD600;
+	
+	font-family: 'Crushed';
+	font-weight: bold;
+	font-size: 20px;
+	
+	padding: 10px;
+	border: none;
+	border-radius: 100px;
+	
+}
+
+
+/* estrellas con flexbox  */
+.contenedor-estrellas {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 0 0 20px;
+	
+	/* FLEXBOX */
+	display: flex;
+}
+
+.estrellas-principal {
+	background-color: gray;
+	border-radius: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
+	
+	/* FLEXBOX */
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.estrella-img {
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	
+	/* FLEXBOX */
+	width: 33.33% - 12px; */
+}
+
+.estrella-img img {
+	witdh: 12rem;
+	height: 12rem;
+	border-radius:50%;
+	border: 3px solid #fff;
+}
+
+.estrella-img img:hover {
+	transform: rotate(-5deg);
+	transform: rotate(5deg);
+}
+
+.estrellas-aside {
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+	background-size: cover;
+	background-position: center center;
+	
+	/* FLEXBOX */
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+}
+
