@@ -27,18 +27,20 @@ var peliculas=[
 ]
 
 var cad=``	
-if (document.getElementById("tablaPeliculas")) {
-	for (var i=0; i<12; i++) {
 
+if (document.getElementById("tablaPeliculas")) {
+	
+	for (var i=0; i<peliculas.length; i++) {
+	
 		cad+=` 
 				<article class="entrada-blog">
 				<h4>${peliculas[i].nombre}</h4>
 				<img class="cajita" src="${peliculas[i].imagen}">
 				</article>
 			`	
-	}
-}	
+	}	
+}
+console.log(cad);
 document.getElementById("tablaPeliculas").innerHTML=cad;
 
-
-
+					
